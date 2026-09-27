@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- check / send boundary -->
+  <rect x="3.6" y="3.6" width="16.8" height="16.8" rx="3.4"/>
+  <path d="M7.6 12.2l2.85 2.85 5.9-6.35"/>
+</svg>
