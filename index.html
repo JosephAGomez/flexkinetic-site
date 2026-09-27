@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kinetic — Coaching doesn’t stop between sessions</title>
+  <meta name="description" content="Get your time back — and make clients feel coached every day. Maya check-ins + a trainer dashboard. The agent drafts; you send." />
+  <meta name="theme-color" content="#1A1A1A" />
+  <link rel="icon" href="kinetic-wordmark-nav.png" />
+  <style>
+    :root {
+      --ink: #1A1A1A;
+      --green: #69BE28;
+      --green-dark: #5aa622;
+      --wolf: #A5ACAF;
+      --soft: #F4F5F4;
+      --border: #E6E8E6;
+      --white: #FFFFFF;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+
+    /* NAV — larger wordmark per founder (fills header; > Jordan’s 56px comp) */
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 12px 0;
+      width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
+    }
+    .nav-logo { height: 72px; width: auto; display: block; }
+    @media (min-width: 768px) {
+      .nav-logo { height: 88px; }
+      .nav-inner { padding: 14px 0; }
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 24px; border-radius: 8px;
+      background: var(--green); color: #fff; font-weight: 600; font-size: 16px;
+      border: none; cursor: pointer; white-space: nowrap;
+      transition: background 0.15s ease;
+    }
+    .btn:hover { background: var(--green-dark); }
+    .btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .btn-nav { min-height: 42px; padding: 0 18px; font-size: 15px; }
+
+    /* HERO */
+    .hero { padding: 56px 0 40px; }
+    .hero-grid { display: grid; gap: 36px; align-items: center; }
+    @media (min-width: 900px) {
+      .hero { padding: 72px 0 48px; }
+      .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 48px; }
+    }
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.12; letter-spacing: -0.02em; font-weight: 700;
+    }
+    .hero .sub {
+      margin: 0 0 28px; font-size: clamp(16px, 2vw, 18px);
+      color: #333; max-width: 36em;
+    }
+    .hero-note { margin: 12px 0 0; font-size: 14px; color: var(--wolf); }
+    .hero-card {
+      background: var(--soft); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px;
+    }
+    .hero-card-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--green); margin: 0 0 14px;
+    }
+    .pulse { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .pulse li {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 16px;
+    }
+    .pulse strong { display: block; margin-bottom: 2px; }
+    .pulse span { color: #666; font-size: 14px; }
+    .dot {
+      display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+      margin-right: 8px; vertical-align: middle;
+    }
+    .dot-green { background: var(--green); }
+    .dot-grey { background: var(--wolf); }
+    .dot-ink { background: var(--ink); }
+    .hero-card-foot { margin: 14px 0 0; font-size: 13px; color: var(--wolf); }
+
+    /* PRODUCT — below hero */
+    .product {
+      background: var(--soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 0 56px;
+    }
+    .product-label {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--wolf); margin: 0 0 8px;
+    }
+    .product h2 { margin: 0 0 28px; font-size: clamp(22px, 3vw, 28px); letter-spacing: -0.01em; }
+    .shots { display: grid; gap: 28px; }
+    @media (min-width: 800px) {
+      .shots { grid-template-columns: 1.35fr 0.85fr; align-items: start; }
+    }
+    .shot {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 14px; padding: 14px;
+      box-shadow: 0 8px 28px rgba(26,26,26,0.05);
+      margin: 0;
+    }
+    .shot img {
+      width: 100%; border-radius: 8px; border: 1px solid var(--border); background: #fff;
+    }
+    .shot.messages {
+      background: #F7F6F2;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .shot.messages img {
+      max-height: 520px; width: auto; max-width: 100%;
+      margin: 8px auto 0; object-fit: contain; border: none; background: transparent;
+      display: block;
+    }
+    .shot figcaption {
+      margin-top: 12px; font-size: 13px; color: #555; font-weight: 500;
+    }
+    .shot figcaption strong { color: var(--ink); font-weight: 600; }
+
+    /* SECTIONS */
+    section.band { padding: 72px 0; }
+    section.band.soft { background: var(--soft); }
+    .eyebrow {
+      margin: 0 0 10px; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--green);
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .sec-icon {
+      width: 28px; height: 28px; flex: 0 0 auto;
+      color: var(--green); display: block;
+    }
+    .band.soft .sec-icon { color: var(--ink); }
+    .band.soft .eyebrow { color: var(--ink); }
+    .band.soft .eyebrow .sec-icon { color: var(--green); } /* keep icons green even on soft */
+    h2 {
+      margin: 0 0 14px; font-size: clamp(26px, 3.5vw, 32px);
+      line-height: 1.2; letter-spacing: -0.015em;
+    }
+    .body { margin: 0 0 20px; max-width: 40em; color: #333; }
+    .cards { display: grid; gap: 16px; margin-top: 28px; }
+    @media (min-width: 800px) { .cards.three { grid-template-columns: repeat(3, 1fr); } }
+    .card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 22px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 17px; }
+    .card p { margin: 0; color: #444; font-size: 15px; }
+    ul.check { margin: 0; padding: 0; list-style: none; }
+    ul.check li {
+      position: relative; padding: 8px 0 8px 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    ul.check li:last-child { border-bottom: none; }
+    ul.check li::before {
+      content: ""; position: absolute; left: 0; top: 14px;
+      width: 14px; height: 14px; border-radius: 4px; background: var(--green);
+      box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 5px var(--green);
+    }
+    .steps { display: grid; gap: 16px; margin-top: 28px; }
+    @media (min-width: 800px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+    .step {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 16px; padding: 22px;
+    }
+    .step-num {
+      font-size: 13px; font-weight: 800; letter-spacing: 0.08em;
+      color: var(--green); margin-bottom: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .step-num .sec-icon { width: 24px; height: 24px; color: var(--green); }
+    .step h3 { margin: 0 0 8px; font-size: 17px; }
+    .step p { margin: 0; color: #444; font-size: 15px; }
+    .split { display: grid; gap: 16px; margin-top: 24px; }
+    @media (min-width: 800px) { .split { grid-template-columns: 1fr 1fr; } }
+    .split ul { margin: 0; padding-left: 18px; color: #333; }
+    .split li { margin: 0 0 6px; }
+    .callout {
+      margin-top: 24px; border: 1px solid var(--border);
+      border-left: 4px solid var(--green); border-radius: 12px;
+      padding: 22px 24px; background: var(--white); max-width: 48em;
+    }
+    .callout p { margin: 0; font-size: 17px; }
+    .callout .note { margin-top: 12px; font-size: 14px; color: #666; }
+
+    .cta-band { background: var(--ink); color: #fff; padding: 64px 0; }
+    .cta-band h2 { color: #fff; margin-bottom: 10px; }
+    .cta-band p { color: var(--wolf); margin: 0 0 24px; max-width: 34em; }
+
+    /* FOOTER — thin */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 18px 0; font-size: 13px; color: var(--wolf);
+    }
+    .footer-inner {
+      width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 8px 20px;
+      justify-content: space-between; align-items: center;
+    }
+    .footer strong { color: var(--ink); font-weight: 600; }
+    .footer .legal { color: #9aa0a3; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" aria-label="Kinetic home">
+        <img class="nav-logo" src="kinetic-wordmark-nav.png" alt="Kinetic" />
+      </a>
+      <a class="btn btn-nav" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Coaching doesn’t stop between sessions.</h1>
+          <p class="sub">Keep clients engaged between sessions — without living in your texts. Kinetic runs the check-ins, flags who’s quiet, and drafts in your voice so communication stays consistent. You still send.</p>
+          <a class="btn" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
+          <p class="hero-note">See how Kinetic supercharges your coaching.</p>
+        </div>
+        <aside class="hero-card" aria-label="Dashboard preview">
+          <p class="hero-card-label">Dashboard preview</p>
+          <ul class="pulse">
+            <li>
+              <strong><span class="dot dot-green"></span>Who trained</strong>
+              <span>Check-ins logged. Week at a glance.</span>
+            </li>
+            <li>
+              <strong><span class="dot dot-grey"></span>Who’s quiet</strong>
+              <span>Flags so you know who to reach.</span>
+            </li>
+            <li>
+              <strong><span class="dot dot-ink"></span>Needs you</strong>
+              <span>STOP / needs-you alerts — you stay in the loop.</span>
+            </li>
+          </ul>
+          <p class="hero-card-foot">Clients stay on 1:1 text · no new app</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="product" aria-label="Product">
+      <div class="wrap">
+        <p class="product-label">See it in use</p>
+        <h2>Maya check-ins + your dashboard</h2>
+        <div class="shots">
+          <figure class="shot">
+            <img src="dashboard.png?v=2" alt="Trainer dashboard — who trained, who’s quiet, who needs you" />
+            <figcaption><strong>Trainer dashboard</strong> — who checked in, who’s quiet, who needs you</figcaption>
+          </figure>
+          <figure class="shot messages">
+            <img src="checkin-messages.png?v=3" alt="Client check-in texts on iPhone" />
+            <figcaption><strong>Maya check-ins</strong> — short texts between sessions; clients stay on text</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band soft" id="problem">
+      <div class="wrap">
+        <p class="eyebrow">The gap between sessions</p>
+        <h2>Between sessions go dark.</h2>
+        <p class="body">Clients leave the gym. Follow-through fades. You’re stuck choosing between another app they won’t open — or texting everyone yourself with no system. Either way, your time disappears and clients don’t feel coached mid-week.</p>
+        <div class="cards three">
+          <div class="card">
+            <h3>Sessions end. Coaching shouldn’t.</h3>
+            <p>What happens mid-week decides who shows up next.</p>
+          </div>
+          <div class="card">
+            <h3>Apps clients won’t open.</h3>
+            <p>Another login is not presence.</p>
+          </div>
+          <div class="card">
+            <h3>Manual texting burns your hours.</h3>
+            <p>You’re still the coach. You need infrastructure behind the texts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="what">
+      <div class="wrap">
+        <p class="eyebrow"><svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  
+  <rect x="7" y="2.75" width="10" height="18.5" rx="2.4"/>
+  <path d="M10.25 18.85c.55-.55 2.95-.55 3.5 0"/>
+</svg> What you get</p>
+        <h2>Built to keep clients engaged between sessions.</h2>
+        <p class="body"><strong>Maya check-ins + a trainer dashboard.</strong> Infrastructure so you can give full attention in the session — and stay present between them — without living in your DMs. The agent watches check-ins, progress, and silence; surfaces what matters; drafts replies in your voice. <strong>You send.</strong> Clients still hear from you.</p>
+        <ul class="check">
+          <li>Maya runs between-session check-ins by text — no new app for clients</li>
+          <li>Dashboard shows who checked in / who’s quiet / who needs you</li>
+          <li>Agent drafts and flags; nothing goes to existing clients without your approval</li>
+          <li>You stay the coach — infrastructure stays invisible to the client</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band soft" id="how">
+      <div class="wrap">
+        <p class="eyebrow"><svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  
+  <path d="M2.5 12s3.2-5.5 9.5-5.5S21.5 12 21.5 12s-3.2 5.5-9.5 5.5S2.5 12 2.5 12z"/>
+  <circle cx="12" cy="12" r="2.35"/>
+</svg> How it works</p>
+        <h2>Watch. Draft. You send.</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num"><svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  
+  <rect x="7" y="2.75" width="10" height="18.5" rx="2.4"/>
+  <path d="M10.25 18.85c.55-.55 2.95-.55 3.5 0"/>
+</svg> 01</div>
+            <h3>Clients check in by text</h3>
+            <p>Simple Maya prompts between sessions. No new app.</p>
+          </div>
+          <div class="step">
+            <div class="step-num"><svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  
+  <path d="M2.5 12s3.2-5.5 9.5-5.5S21.5 12 21.5 12s-3.2 5.5-9.5 5.5S2.5 12 2.5 12z"/>
+  <circle cx="12" cy="12" r="2.35"/>
+</svg> 02</div>
+            <h3>Your dashboard shows the week</h3>
+            <p>Who checked in. Who’s quiet. Who needs you.</p>
+          </div>
+          <div class="step">
+            <div class="step-num"><svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  
+  <rect x="3.6" y="3.6" width="16.8" height="16.8" rx="3.4"/>
+  <path d="M7.6 12.2l2.85 2.85 5.9-6.35"/>
+</svg> 03</div>
+            <h3>You stay in control</h3>
+            <p>The agent flags and drafts. You approve and send — clients hear from you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="trust">
+      <div class="wrap">
+        <p class="eyebrow"><svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  
+  <path d="M13.5 5.2l5.3 5.3"/>
+  <path d="M16.85 3.85a1.85 1.85 0 0 1 2.62 2.62L8.1 18.0l-3.55.95.95-3.55L16.85 3.85z"/>
+  <path d="M4 20.25h7.5"/>
+</svg> Trust</p>
+        <h2>The agent drafts. You send.</h2>
+        <p class="body">Nothing goes out to your existing clients under your name unless you approve it. That boundary is permanent for client relationships — not a trial period.</p>
+        <div class="split">
+          <div class="card">
+            <h3>Maya does</h3>
+            <ul>
+              <li>Sends between-session check-in prompts (with your setup)</li>
+              <li>Logs replies to your dashboard</li>
+              <li>Flags quiet / needs-you so you know who to reach</li>
+              <li>Drafts replies in your voice for your approval</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Maya does not</h3>
+            <ul>
+              <li>Send to existing clients without your approval</li>
+              <li>Live set-by-set mid-workout logging</li>
+              <li>Medical, nutrition, or program advice</li>
+              <li>Replace you as the coach</li>
+            </ul>
+          </div>
+        </div>
+        <p class="body" style="margin-top:20px;color:#666;font-size:15px;">Check-ins between sessions — not mid-workout play-by-play.</p>
+      </div>
+    </section>
+
+    <section class="band soft" id="fit">
+      <div class="wrap">
+        <p class="eyebrow">Fit</p>
+        <h2>Built for trainers who coach in person and online.</h2>
+        <ul class="check">
+          <li>Independent trainers, small studios and fitness gyms</li>
+          <li>Want between-session check-ins without another app clients ignore</li>
+          <li>Want clients to feel coached between sessions — without burning your evenings</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta-band" id="book">
+      <div class="wrap">
+        <h2>Ready to see if it fits how you coach?</h2>
+        <p>Fifteen minutes. Walk through your roster and what Maya + the dashboard would look like for you.</p>
+        <a class="btn" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>Kinetic</strong> · flexkinetic.com · Keep them moving between sessions.</div>
+    </div>
+  </footer>
+</body>
+</html>
