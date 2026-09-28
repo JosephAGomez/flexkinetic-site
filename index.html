@@ -81,29 +81,19 @@
       color: #333; max-width: 36em;
     }
     .hero-note { margin: 12px 0 0; font-size: 14px; color: var(--wolf); }
-    .hero-card {
-      background: var(--soft); border: 1px solid var(--border);
-      border-radius: 16px; padding: 20px;
+    .hero-maya,
+    .hero-maya-fallback {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      margin: 0 auto;
     }
-    .hero-card-label {
-      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--green); margin: 0 0 14px;
+    .hero-maya-fallback { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-maya { display: none; }
+      .hero-maya-fallback { display: block; }
     }
-    .pulse { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-    .pulse li {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 12px; padding: 14px 16px;
-    }
-    .pulse strong { display: block; margin-bottom: 2px; }
-    .pulse span { color: #666; font-size: 14px; }
-    .dot {
-      display: inline-block; width: 8px; height: 8px; border-radius: 50%;
-      margin-right: 8px; vertical-align: middle;
-    }
-    .dot-green { background: var(--green); }
-    .dot-grey { background: var(--wolf); }
-    .dot-ink { background: var(--ink); }
-    .hero-card-foot { margin: 14px 0 0; font-size: 13px; color: var(--wolf); }
 
     /* PRODUCT — below hero */
     .product {
@@ -249,23 +239,12 @@
           <a class="btn" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min fit call</a>
           <p class="hero-note">To coach more clients. To save time. To keep clients.</p>
         </div>
-        <aside class="hero-card" aria-label="Dashboard preview">
-          <p class="hero-card-label">Dashboard preview</p>
-          <ul class="pulse">
-            <li>
-              <strong><span class="dot dot-green"></span>Who trained</strong>
-              <span>Check-ins logged. Week at a glance.</span>
-            </li>
-            <li>
-              <strong><span class="dot dot-grey"></span>Who’s quiet</strong>
-              <span>Flags so you know who to reach.</span>
-            </li>
-            <li>
-              <strong><span class="dot dot-ink"></span>Needs you</strong>
-              <span>STOP / needs-you alerts — you stay in the loop.</span>
-            </li>
-          </ul>
-          <p class="hero-card-foot">Clients stay on 1:1 text · no new app</p>
+        <aside class="hero-visual" aria-label="Maya check-in on text">
+          <video class="hero-maya" autoplay muted loop playsinline poster="maya-hero-poster.png" width="720" height="900">
+            <source src="maya-hero.webm" type="video/webm" />
+            <source src="maya-hero.mp4" type="video/mp4" />
+          </video>
+          <img class="hero-maya-fallback" src="maya-hero-fallback.png" alt="Maya check-in texts on iPhone" width="720" height="900" />
         </aside>
       </div>
     </section>
