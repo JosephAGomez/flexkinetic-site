@@ -81,13 +81,25 @@
       color: #333; max-width: 36em;
     }
     .hero-note { margin: 12px 0 0; font-size: 14px; color: var(--wolf); }
+    .hero-visual {
+      width: min(100%, 420px);
+      margin: 0 auto;
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      overflow: hidden;
+      line-height: 0;
+      box-shadow:
+        0 1px 2px rgba(26, 26, 26, 0.04),
+        0 14px 36px rgba(26, 26, 26, 0.07);
+    }
     .hero-maya,
     .hero-maya-fallback {
       display: block;
       width: 100%;
-      max-width: 420px;
       height: auto;
-      margin: 0 auto;
+      margin: 0;
+      border-radius: 32px;
     }
     .hero-maya-fallback { display: none; }
     @media (prefers-reduced-motion: reduce) {
