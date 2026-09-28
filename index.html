@@ -225,6 +225,9 @@
     }
     .footer strong { color: var(--ink); font-weight: 600; }
     .footer .legal { color: #9aa0a3; }
+    .footer a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .footer a:hover { color: var(--ink); }
+    .footer a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -422,6 +425,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div><strong>Kinetic</strong> · flexkinetic.com · Keep them moving between sessions.</div>
+      <div class="legal">© 2026 Kinetic · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></div>
     </div>
   </footer>
 </body>
