@@ -40,8 +40,8 @@
     .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
 
     /* NAV — sits on the same lifestyle wash as the hero.
-       Transparent while the hero is behind it. Once the hero scrolls
-       away, .is-solid adds a light blur so the wordmark stays readable. */
+       Transparent at the top. A few pixels of scroll adds .is-solid
+       so the bar frosts while moving through the hero and below. */
     .nav {
       position: sticky; top: 0; z-index: 20;
       min-height: var(--nav-h);
@@ -510,14 +510,11 @@
   <script>
     (function () {
       var nav = document.querySelector(".nav");
-      var hero = document.querySelector(".hero");
-      if (!nav || !hero) return;
+      if (!nav) return;
       var queued = false;
       function update() {
         queued = false;
-        var navBottom = nav.getBoundingClientRect().bottom;
-        var heroBottom = hero.getBoundingClientRect().bottom;
-        nav.classList.toggle("is-solid", heroBottom <= navBottom + 1);
+        nav.classList.toggle("is-solid", window.scrollY > 12);
       }
       function requestUpdate() {
         if (queued) return;
