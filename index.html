@@ -19,6 +19,10 @@
       --border: #E6E8E6;
       --white: #FFFFFF;
       --max: 1080px;
+      --nav-h: 64px;
+    }
+    @media (min-width: 768px) {
+      :root { --nav-h: 72px; }
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -35,12 +39,21 @@
     img { max-width: 100%; height: auto; display: block; }
     .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
 
-    /* NAV — wordmark scaled to the 42px Book CTA (not filling the bar) */
+    /* NAV — sits on the same lifestyle wash as the hero.
+       Transparent at the top. A few pixels of scroll adds .is-solid
+       so the bar frosts while moving through the hero and below. */
     .nav {
       position: sticky; top: 0; z-index: 20;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
+      min-height: var(--nav-h);
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, backdrop-filter 0.2s ease;
+    }
+    .nav.is-solid {
+      background: rgba(241, 242, 241, 0.92);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom-color: rgba(26, 26, 26, 0.08);
     }
     .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
@@ -63,12 +76,73 @@
     .btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
     .btn-nav { min-height: 42px; padding: 0 18px; font-size: 15px; }
 
-    /* HERO */
-    .hero { padding: 56px 0 40px; }
-    .hero-grid { display: grid; gap: 36px; align-items: center; }
+    /* HERO
+       The lifestyle plate starts behind the nav (top: -nav height) so the
+       bar and the hero are one image. ::after is the sage/charcoal wash:
+       left-to-right on desktop, top-to-bottom on small screens. */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: visible;
+      padding: 56px 0 40px;
+      background: #f1f2f1;
+    }
+    .hero-scene {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: calc(-1 * var(--nav-h));
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-scene img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 72% 42%;
+    }
+    .hero-scene::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, #f4f5f4 0%, rgba(244,245,244,0) 12%),
+        linear-gradient(
+          180deg,
+          rgba(241,242,241,0.9) 0,
+          rgba(241,242,241,0.9) calc(var(--nav-h) + 280px),
+          rgba(220,226,216,0.28) calc(var(--nav-h) + 390px),
+          rgba(26,26,26,0.1) 100%
+        );
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; gap: 28px; align-items: center; }
     @media (min-width: 900px) {
-      .hero { padding: 72px 0 48px; }
-      .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 48px; }
+      .hero { padding: 64px 0 48px; }
+      .hero .hero-grid {
+        width: auto;
+        max-width: none;
+        margin-left: max(24px, calc((100% - 1080px) / 2));
+        margin-right: 28px;
+        grid-template-columns: minmax(260px, 500px) minmax(320px, 420px);
+        justify-content: start;
+        gap: 40px;
+      }
+      .hero-scene img { object-position: center 42%; }
+      .hero-scene::after {
+        background:
+          linear-gradient(to top, #f4f5f4 0%, rgba(244,245,244,0) 14%),
+          linear-gradient(
+            90deg,
+            rgba(241,242,241,0.94) 0%,
+            rgba(241,242,241,0.9) 34%,
+            rgba(241,242,241,0.45) 50%,
+            rgba(214,220,208,0.1) 64%,
+            rgba(26,26,26,0.12) 100%
+          );
+      }
     }
     .hero h1 {
       margin: 0 0 16px;
@@ -80,25 +154,37 @@
       color: #333; max-width: 36em;
     }
     .hero-note { margin: 12px 0 0; font-size: 14px; color: var(--wolf); }
+    /* The Maya file is a phone on a large white plate. This window is only
+       the device (bezel + screen). Soft shadow; no plate, card, or mat. */
     .hero-visual {
-      width: min(100%, 420px);
-      margin: 0 auto;
-      background: var(--soft);
-      border: 1px solid var(--border);
-      border-radius: 32px;
+      position: relative;
+      width: min(100%, 250px);
+      aspect-ratio: 324 / 684;
+      margin: 20px auto 0;
+      background: transparent;
+      border: none;
+      border-radius: 14.8% / 7%;
       overflow: hidden;
       line-height: 0;
-      box-shadow:
-        0 1px 2px rgba(26, 26, 26, 0.04),
-        0 14px 36px rgba(26, 26, 26, 0.07);
+      box-shadow: 0 18px 40px rgba(26, 26, 26, 0.22);
+    }
+    @media (min-width: 900px) {
+      .hero-visual { margin: 0; justify-self: start; width: min(100%, 280px); }
     }
     .hero-maya,
     .hero-maya-fallback {
+      position: absolute;
       display: block;
-      width: 100%;
-      height: auto;
+      /* Asset is 720×900. Device window: x 198, y 108, 324×684. */
+      width: 222.222%;
+      height: 131.579%;
+      max-width: none;
+      left: -61.111%;
+      top: -15.789%;
       margin: 0;
-      border-radius: 32px;
+      border: none;
+      border-radius: 0;
+      object-fit: fill;
     }
     .hero-maya-fallback { display: none; }
     @media (prefers-reduced-motion: reduce) {
@@ -235,7 +321,7 @@
   <header class="nav">
     <div class="nav-inner">
       <a href="#top" aria-label="Kinetic home">
-        <img class="nav-logo" src="kinetic-wordmark-nav.png" alt="Kinetic" />
+        <img class="nav-logo" src="images/kinetic-wordmark-nav-clear.png" alt="Kinetic" />
       </a>
       <a class="btn btn-nav" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
     </div>
@@ -243,6 +329,9 @@
 
   <main id="top">
     <section class="hero">
+      <div class="hero-scene" aria-hidden="true">
+        <img src="images/hero-coach-client.webp" alt="" width="1800" height="904" decoding="async" />
+      </div>
       <div class="wrap hero-grid">
         <div>
           <h1>Coaching doesn’t stop between sessions.</h1>
@@ -418,5 +507,24 @@
       <div class="legal">© 2026 Kinetic · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></div>
     </div>
   </footer>
+  <script>
+    (function () {
+      var nav = document.querySelector(".nav");
+      if (!nav) return;
+      var queued = false;
+      function update() {
+        queued = false;
+        nav.classList.toggle("is-solid", window.scrollY > 12);
+      }
+      function requestUpdate() {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(update);
+      }
+      update();
+      window.addEventListener("scroll", requestUpdate, { passive: true });
+      window.addEventListener("resize", requestUpdate);
+    })();
+  </script>
 </body>
 </html>
