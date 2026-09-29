@@ -35,7 +35,7 @@
     img { max-width: 100%; height: auto; display: block; }
     .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
 
-    /* NAV — larger wordmark per founder (fills header; > Jordan’s 56px comp) */
+    /* NAV — wordmark scaled to the 42px Book CTA (not filling the bar) */
     .nav {
       position: sticky; top: 0; z-index: 20;
       background: rgba(255,255,255,0.96);
@@ -44,13 +44,12 @@
     }
     .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; padding: 12px 0;
+      gap: 16px; padding: 8px 0;
       width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
     }
-    .nav-logo { height: 72px; width: auto; display: block; }
+    .nav-logo { height: 48px; width: auto; display: block; }
     @media (min-width: 768px) {
-      .nav-logo { height: 88px; }
-      .nav-inner { padding: 14px 0; }
+      .nav-logo { height: 56px; }
     }
 
     .btn {
