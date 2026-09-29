@@ -64,25 +64,26 @@
     .btn-nav { min-height: 42px; padding: 0 18px; font-size: 15px; }
 
     /* HERO
-       Lifestyle photo sits behind the existing copy + Maya phone.
-       .hero-scene is masked so the photo fades in only past the copy
-       (left-to-right on desktop, top-to-bottom on small screens).
-       ::after lays a sage wash over the photo and a light charcoal
-       veil at the outer edge. The phone stays the sharp product UI. */
+       Lifestyle plate is the locked coach+client scene: light grey on
+       the left, gym fading in toward the right. It is full-bleed behind
+       the real copy and Maya phone.
+       ::after is a light sage wash plus a charcoal edge on the far right,
+       and a short fade to the next section. On small screens a top mask
+       keeps the copy on the light grey and lets the photo crop in lower. */
     .hero {
       position: relative;
       isolation: isolate;
       overflow: hidden;
       padding: 56px 0 40px;
-      background: var(--white);
+      background: #f1f2f1;
     }
     .hero-scene {
       position: absolute;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 36%, #000 48%, #000 66%, transparent 82%);
-      mask-image: linear-gradient(180deg, transparent 0%, transparent 36%, #000 48%, #000 66%, transparent 82%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 40%, #000 54%);
+      mask-image: linear-gradient(180deg, transparent 0%, transparent 40%, #000 54%);
     }
     .hero-scene img {
       position: absolute;
@@ -90,52 +91,48 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 74% 36%;
-      filter: saturate(0.82) brightness(1.16) contrast(0.98);
+      object-position: 72% 42%;
     }
     .hero-scene::after {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0) 10%),
+        linear-gradient(to top, #f4f5f4 0%, rgba(244,245,244,0) 12%),
         linear-gradient(
           180deg,
-          #ffffff 0%,
-          #ffffff 36%,
-          rgba(236,240,234,0.4) 44%,
-          rgba(206,214,198,0.16) 56%,
-          rgba(255,255,255,0.62) 70%,
-          #ffffff 100%
+          rgba(241,242,241,0.2) 0%,
+          rgba(220,226,216,0.14) 55%,
+          rgba(26,26,26,0.12) 100%
         );
     }
-    .hero-grid { position: relative; z-index: 1; display: grid; gap: 36px; align-items: center; }
+    .hero-grid { position: relative; z-index: 1; display: grid; gap: 28px; align-items: center; }
     @media (min-width: 900px) {
-      .hero { padding: 72px 0 56px; }
-      .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 48px; }
-      .hero-scene {
-        -webkit-mask-image: linear-gradient(100deg, transparent 0%, transparent 51%, rgba(0,0,0,0.7) 64%, #000 78%);
-        mask-image: linear-gradient(100deg, transparent 0%, transparent 51%, rgba(0,0,0,0.7) 64%, #000 78%);
-      }
-      .hero-scene img {
-        top: 50%;
-        right: -4%;
-        left: auto;
+      .hero { padding: 64px 0 48px; }
+      .hero .hero-grid {
         width: auto;
-        height: 124%;
-        transform: translateY(-50%);
-        filter: saturate(0.8) brightness(1.12) contrast(0.97);
+        max-width: none;
+        margin-left: max(24px, calc((100% - 1080px) / 2));
+        margin-right: 28px;
+        grid-template-columns: minmax(260px, 500px) minmax(320px, 420px);
+        justify-content: start;
+        gap: 40px;
       }
+      .hero-scene {
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+      .hero-scene img { object-position: center 46%; }
       .hero-scene::after {
         background:
-          linear-gradient(to top, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0) 16%),
+          linear-gradient(to top, #f4f5f4 0%, rgba(244,245,244,0) 14%),
           linear-gradient(
-            102deg,
-            transparent 0%,
-            transparent 46%,
-            rgba(228,233,224,0.4) 60%,
-            rgba(196,206,188,0.22) 76%,
-            rgba(26,26,26,0.18) 100%
+            90deg,
+            rgba(241,242,241,0.94) 0%,
+            rgba(241,242,241,0.9) 34%,
+            rgba(241,242,241,0.45) 50%,
+            rgba(214,220,208,0.1) 64%,
+            rgba(26,26,26,0.12) 100%
           );
       }
     }
@@ -151,7 +148,7 @@
     .hero-note { margin: 12px 0 0; font-size: 14px; color: var(--wolf); }
     .hero-visual {
       width: min(100%, 420px);
-      margin: 88px auto 0;
+      margin: 20px auto 0;
       background: var(--soft);
       border: 1px solid var(--border);
       border-radius: 32px;
@@ -162,7 +159,7 @@
         0 18px 44px rgba(26, 26, 26, 0.14);
     }
     @media (min-width: 900px) {
-      .hero-visual { margin: 0 auto; }
+      .hero-visual { margin: 0; justify-self: start; width: 100%; }
     }
     .hero-maya,
     .hero-maya-fallback {
@@ -316,7 +313,7 @@
   <main id="top">
     <section class="hero">
       <div class="hero-scene" aria-hidden="true">
-        <img src="images/hero-coach-client.webp" alt="" width="1280" height="720" decoding="async" />
+        <img src="images/hero-coach-client.webp" alt="" width="1800" height="904" decoding="async" />
       </div>
       <div class="wrap hero-grid">
         <div>
