@@ -154,33 +154,33 @@
       color: #333; max-width: 36em;
     }
     .hero-note { margin: 12px 0 0; font-size: 14px; color: var(--wolf); }
-    /* Phone sits on the photo. The Maya asset is a white screen on a gray
-       mat; this window crops that mat. Soft shadow only — no card or frame. */
+    /* The Maya file is a phone on a large white plate. This window is only
+       the device (bezel + screen). Soft shadow; no plate, card, or mat. */
     .hero-visual {
       position: relative;
-      width: min(100%, 300px);
-      aspect-ratio: 560 / 820;
+      width: min(100%, 250px);
+      aspect-ratio: 324 / 684;
       margin: 20px auto 0;
       background: transparent;
       border: none;
-      border-radius: 5% / 3.4%;
+      border-radius: 14.8% / 7%;
       overflow: hidden;
       line-height: 0;
-      box-shadow: 0 16px 36px rgba(26, 26, 26, 0.16);
+      box-shadow: 0 18px 40px rgba(26, 26, 26, 0.22);
     }
     @media (min-width: 900px) {
-      .hero-visual { margin: 0; justify-self: start; width: min(100%, 320px); }
+      .hero-visual { margin: 0; justify-self: start; width: min(100%, 280px); }
     }
     .hero-maya,
     .hero-maya-fallback {
       position: absolute;
       display: block;
-      /* Asset is 720×900. Visible window is the screen: x 80, y 40, 560×820. */
-      width: 128.571%;
-      height: 109.756%;
+      /* Asset is 720×900. Device window: x 198, y 108, 324×684. */
+      width: 222.222%;
+      height: 131.579%;
       max-width: none;
-      left: -14.286%;
-      top: -4.878%;
+      left: -61.111%;
+      top: -15.789%;
       margin: 0;
       border: none;
       border-radius: 0;
