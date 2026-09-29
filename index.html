@@ -19,6 +19,10 @@
       --border: #E6E8E6;
       --white: #FFFFFF;
       --max: 1080px;
+      --nav-h: 64px;
+    }
+    @media (min-width: 768px) {
+      :root { --nav-h: 72px; }
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -35,12 +39,21 @@
     img { max-width: 100%; height: auto; display: block; }
     .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
 
-    /* NAV — wordmark scaled to the 42px Book CTA (not filling the bar) */
+    /* NAV — sits on the same lifestyle wash as the hero.
+       Transparent while the hero is behind it. Once the hero scrolls
+       away, .is-solid adds a light blur so the wordmark stays readable. */
     .nav {
       position: sticky; top: 0; z-index: 20;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
+      min-height: var(--nav-h);
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, backdrop-filter 0.2s ease;
+    }
+    .nav.is-solid {
+      background: rgba(241, 242, 241, 0.92);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom-color: rgba(26, 26, 26, 0.08);
     }
     .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
@@ -64,26 +77,24 @@
     .btn-nav { min-height: 42px; padding: 0 18px; font-size: 15px; }
 
     /* HERO
-       Lifestyle plate is the locked coach+client scene: light grey on
-       the left, gym fading in toward the right. It is full-bleed behind
-       the real copy and Maya phone.
-       ::after is a light sage wash plus a charcoal edge on the far right,
-       and a short fade to the next section. On small screens a top mask
-       keeps the copy on the light grey and lets the photo crop in lower. */
+       The lifestyle plate starts behind the nav (top: -nav height) so the
+       bar and the hero are one image. ::after is the sage/charcoal wash:
+       left-to-right on desktop, top-to-bottom on small screens. */
     .hero {
       position: relative;
       isolation: isolate;
-      overflow: hidden;
+      overflow: visible;
       padding: 56px 0 40px;
       background: #f1f2f1;
     }
     .hero-scene {
       position: absolute;
-      inset: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: calc(-1 * var(--nav-h));
       z-index: 0;
       pointer-events: none;
-      -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 40%, #000 54%);
-      mask-image: linear-gradient(180deg, transparent 0%, transparent 40%, #000 54%);
     }
     .hero-scene img {
       position: absolute;
@@ -101,9 +112,10 @@
         linear-gradient(to top, #f4f5f4 0%, rgba(244,245,244,0) 12%),
         linear-gradient(
           180deg,
-          rgba(241,242,241,0.2) 0%,
-          rgba(220,226,216,0.14) 55%,
-          rgba(26,26,26,0.12) 100%
+          rgba(241,242,241,0.9) 0,
+          rgba(241,242,241,0.9) calc(var(--nav-h) + 280px),
+          rgba(220,226,216,0.28) calc(var(--nav-h) + 390px),
+          rgba(26,26,26,0.1) 100%
         );
     }
     .hero-grid { position: relative; z-index: 1; display: grid; gap: 28px; align-items: center; }
@@ -118,11 +130,7 @@
         justify-content: start;
         gap: 40px;
       }
-      .hero-scene {
-        -webkit-mask-image: none;
-        mask-image: none;
-      }
-      .hero-scene img { object-position: center 46%; }
+      .hero-scene img { object-position: center 42%; }
       .hero-scene::after {
         background:
           linear-gradient(to top, #f4f5f4 0%, rgba(244,245,244,0) 14%),
@@ -490,5 +498,27 @@
       <div class="legal">© 2026 Kinetic · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></div>
     </div>
   </footer>
+  <script>
+    (function () {
+      var nav = document.querySelector(".nav");
+      var hero = document.querySelector(".hero");
+      if (!nav || !hero) return;
+      var queued = false;
+      function update() {
+        queued = false;
+        var navBottom = nav.getBoundingClientRect().bottom;
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        nav.classList.toggle("is-solid", heroBottom <= navBottom + 1);
+      }
+      function requestUpdate() {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(update);
+      }
+      update();
+      window.addEventListener("scroll", requestUpdate, { passive: true });
+      window.addEventListener("resize", requestUpdate);
+    })();
+  </script>
 </body>
 </html>
