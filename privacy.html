@@ -21,6 +21,13 @@
       --white: #FFFFFF;
       --max: 1080px;
     }
+    @font-face {
+      font-family: "DM Sans";
+      src: url("fonts/dm-sans-semibold.woff2") format("woff2");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -45,21 +52,37 @@
       gap: 16px; padding: 8px 0;
       width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
     }
-    .nav-logo { height: 40px; width: auto; display: block; }
-    @media (min-width: 768px) {
-      .nav-logo { height: 48px; }
-    }
     .wordmark {
       position: relative;
-      display: inline-block;
-      line-height: 0;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.04em;
+      padding-bottom: 0.14em;
+      color: var(--ink);
+      font-family: "DM Sans", Inter, system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 34px;
+      letter-spacing: -0.028em;
+      line-height: 1;
+      text-decoration: none;
     }
+    @media (min-width: 768px) {
+      .nav .wordmark { font-size: 40px; }
+    }
+    .footer .wordmark { font-size: 22px; }
+    .wordmark-mark {
+      height: 0.68em;
+      width: auto;
+      max-width: none;
+      display: block;
+    }
+    .wordmark-type { letter-spacing: -0.028em; }
     .wordmark::after {
       content: "";
       position: absolute;
-      left: 3.1%;
-      right: 3.3%;
-      top: 93%;
+      left: 0;
+      right: 0;
+      bottom: 0;
       height: 1.5px;
       background: var(--green);
       pointer-events: none;
@@ -105,7 +128,6 @@
       padding: 18px 0; font-size: 13px; color: var(--stone);
     }
     .footer-brand { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-    .footer-logo { height: 28px; width: auto; display: block; }
     .footer-inner {
       width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
       display: flex; flex-wrap: wrap; gap: 8px 20px;
@@ -122,7 +144,8 @@
   <header class="nav">
     <div class="nav-inner">
       <a class="wordmark" href="index.html" aria-label="Dempsey home">
-        <img class="nav-logo" src="images/dempsey-wordmark-nav.png" alt="Dempsey" width="518" height="140" />
+        <img class="wordmark-mark" src="images/dempsey-mark-d-trim.png" alt="" width="374" height="466" />
+        <span class="wordmark-type" aria-hidden="true">empsey</span>
       </a>
       <a class="btn btn-nav" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
     </div>
@@ -187,8 +210,9 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <span class="wordmark">
-          <img class="footer-logo" src="images/dempsey-wordmark-nav.png" alt="Dempsey" width="518" height="140" />
+        <span class="wordmark" role="img" aria-label="Dempsey">
+          <img class="wordmark-mark" src="images/dempsey-mark-d-trim.png" alt="" width="374" height="466" />
+          <span class="wordmark-type" aria-hidden="true">empsey</span>
         </span>
         <span>flexkinetic.com · Keep them moving between sessions.</span>
       </div>
