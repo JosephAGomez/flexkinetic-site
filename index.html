@@ -15,8 +15,8 @@
       --stone: #8A8175;
       --bone: #F4F0E8;
       --cream: #FAF7F2;
-      --bronze: #8B6F47;
-      --bronze-deep: #6B5436;
+      --green: #69BE28;
+      --green-dark: #5aa622;
       --border: #E4DDD2;
       --white: #FFFFFF;
       --max: 1080px;
@@ -69,12 +69,12 @@
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       min-height: 48px; padding: 0 24px; border-radius: 8px;
-      background: var(--ink); color: var(--bone); font-weight: 600; font-size: 16px;
+      background: var(--green); color: #fff; font-weight: 600; font-size: 16px;
       border: none; cursor: pointer; white-space: nowrap;
       transition: background 0.15s ease;
     }
-    .btn:hover { background: #000; }
-    .btn:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
+    .btn:hover { background: var(--green-dark); }
+    .btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
     .btn-nav { min-height: 42px; padding: 0 18px; font-size: 15px; }
 
     /* HERO
@@ -237,16 +237,16 @@
     section.band.soft { background: var(--bone); }
     .eyebrow {
       margin: 0 0 10px; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone);
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--green);
       display: inline-flex; align-items: center; gap: 8px;
     }
     .sec-icon {
       width: 28px; height: 28px; flex: 0 0 auto;
-      color: var(--ink); display: block;
+      color: var(--green); display: block;
     }
     .band.soft .sec-icon { color: var(--ink); }
-    .band.soft .eyebrow { color: var(--stone); }
-    .band.soft .eyebrow .sec-icon { color: var(--ink); }
+    .band.soft .eyebrow { color: var(--ink); }
+    .band.soft .eyebrow .sec-icon { color: var(--green); }
     h2 {
       margin: 0 0 14px; font-size: clamp(26px, 3.5vw, 32px);
       line-height: 1.2; letter-spacing: -0.015em;
@@ -268,8 +268,8 @@
     ul.check li:last-child { border-bottom: none; }
     ul.check li::before {
       content: ""; position: absolute; left: 0; top: 14px;
-      width: 14px; height: 14px; border-radius: 4px; background: var(--ink);
-      box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 5px var(--ink);
+      width: 14px; height: 14px; border-radius: 4px; background: var(--green);
+      box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 5px var(--green);
     }
     .steps { display: grid; gap: 16px; margin-top: 28px; }
     @media (min-width: 800px) { .steps { grid-template-columns: repeat(3, 1fr); } }
@@ -279,10 +279,10 @@
     }
     .step-num {
       font-size: 13px; font-weight: 800; letter-spacing: 0.08em;
-      color: var(--stone); margin-bottom: 10px;
+      color: var(--green); margin-bottom: 10px;
       display: inline-flex; align-items: center; gap: 8px;
     }
-    .step-num .sec-icon { width: 24px; height: 24px; color: var(--ink); }
+    .step-num .sec-icon { width: 24px; height: 24px; color: var(--green); }
     .step h3 { margin: 0 0 8px; font-size: 17px; }
     .step p { margin: 0; color: #444; font-size: 15px; }
     .split { display: grid; gap: 16px; margin-top: 24px; }
@@ -291,7 +291,7 @@
     .split li { margin: 0 0 6px; }
     .callout {
       margin-top: 24px; border: 1px solid var(--border);
-      border-left: 4px solid var(--bronze); border-radius: 12px;
+      border-left: 4px solid var(--green); border-radius: 12px;
       padding: 22px 24px; background: var(--white); max-width: 48em;
     }
     .callout p { margin: 0; font-size: 17px; }
@@ -300,8 +300,6 @@
     .cta-band { background: var(--ink); color: #fff; padding: 64px 0; }
     .cta-band h2 { color: #fff; margin-bottom: 10px; }
     .cta-band p { color: var(--bone); margin: 0 0 24px; max-width: 34em; }
-    .cta-band .btn { background: var(--bone); color: var(--ink); }
-    .cta-band .btn:hover { background: #fff; }
 
     /* FOOTER — thin */
     .footer {
@@ -319,7 +317,7 @@
     .footer .legal { color: #9aa0a3; }
     .footer a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
     .footer a:hover { color: var(--ink); }
-    .footer a:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
+    .footer a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
   </style>
 </head>
 <body>

@@ -15,8 +15,8 @@
       --stone: #8A8175;
       --bone: #F4F0E8;
       --cream: #FAF7F2;
-      --bronze: #8B6F47;
-      --bronze-deep: #6B5436;
+      --green: #69BE28;
+      --green-dark: #5aa622;
       --border: #E4DDD2;
       --white: #FFFFFF;
       --max: 1080px;
@@ -52,12 +52,12 @@
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       min-height: 48px; padding: 0 24px; border-radius: 8px;
-      background: var(--ink); color: var(--bone); font-weight: 600; font-size: 16px;
+      background: var(--green); color: #fff; font-weight: 600; font-size: 16px;
       border: none; cursor: pointer; white-space: nowrap;
       transition: background 0.15s ease;
     }
-    .btn:hover { background: #000; }
-    .btn:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
+    .btn:hover { background: var(--green-dark); }
+    .btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
     .btn-nav { min-height: 42px; padding: 0 18px; font-size: 15px; }
     .doc {
       width: min(680px, calc(100% - 48px));
@@ -66,7 +66,7 @@
     }
     .eyebrow {
       margin: 0 0 10px; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone);
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--green);
     }
     .doc h1 {
       margin: 0 0 12px;
@@ -77,10 +77,10 @@
     .doc h2 { margin: 28px 0 8px; font-size: 18px; letter-spacing: -0.01em; }
     .doc p { margin: 0 0 12px; color: #333; font-size: 16px; }
     .doc a { text-decoration: underline; text-underline-offset: 3px; }
-    .doc a:hover { color: var(--bronze-deep); }
+    .doc a:hover { color: var(--green-dark); }
     .callout {
       margin: 0 0 8px; border: 1px solid var(--border);
-      border-left: 4px solid var(--bronze); border-radius: 12px;
+      border-left: 4px solid var(--green); border-radius: 12px;
       padding: 18px 20px; background: var(--bone);
     }
     .callout p { margin: 0; font-size: 15px; color: #333; }
@@ -100,7 +100,7 @@
     .footer .legal { color: #9aa0a3; }
     .footer a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
     .footer a:hover { color: var(--ink); }
-    .footer a:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
+    .footer a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
   </style>
 </head>
 <body>
