@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kinetic — Coaching doesn’t stop between sessions</title>
-  <meta name="description" content="Meet Maya — your personal agent who lives in text. Check-ins around your programming and each client’s goals. You train while Maya drafts your next steps for clients." />
+  <title>Dempsey — Coaching doesn’t stop between sessions</title>
+  <meta name="description" content="Meet Dempsey — your personal agent who lives in text. Check-ins around your programming and each client’s goals. You train while Dempsey drafts your next steps for clients." />
   <meta name="theme-color" content="#1A1A1A" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
@@ -12,11 +12,12 @@
   <style>
     :root {
       --ink: #1A1A1A;
-      --green: #69BE28;
-      --green-dark: #5aa622;
-      --wolf: #A5ACAF;
-      --soft: #F4F5F4;
-      --border: #E6E8E6;
+      --stone: #8A8175;
+      --bone: #F4F0E8;
+      --cream: #FAF7F2;
+      --bronze: #8B6F47;
+      --bronze-deep: #6B5436;
+      --border: #E4DDD2;
       --white: #FFFFFF;
       --max: 1080px;
       --nav-h: 64px;
@@ -30,7 +31,7 @@
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
-      background: var(--white);
+      background: var(--cream);
       font-size: 17px;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
@@ -50,7 +51,7 @@
       transition: background 0.2s ease, border-color 0.2s ease, backdrop-filter 0.2s ease;
     }
     .nav.is-solid {
-      background: rgba(241, 242, 241, 0.92);
+      background: rgba(244, 240, 232, 0.92);
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
       border-bottom-color: rgba(26, 26, 26, 0.08);
@@ -60,20 +61,20 @@
       gap: 16px; padding: 8px 0;
       width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
     }
-    .nav-logo { height: 48px; width: auto; display: block; }
+    .nav-logo { height: 40px; width: auto; display: block; }
     @media (min-width: 768px) {
-      .nav-logo { height: 56px; }
+      .nav-logo { height: 48px; }
     }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       min-height: 48px; padding: 0 24px; border-radius: 8px;
-      background: var(--green); color: #fff; font-weight: 600; font-size: 16px;
+      background: var(--ink); color: var(--bone); font-weight: 600; font-size: 16px;
       border: none; cursor: pointer; white-space: nowrap;
       transition: background 0.15s ease;
     }
-    .btn:hover { background: var(--green-dark); }
-    .btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .btn:hover { background: #000; }
+    .btn:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
     .btn-nav { min-height: 42px; padding: 0 18px; font-size: 15px; }
 
     /* HERO
@@ -85,7 +86,7 @@
       isolation: isolate;
       overflow: visible;
       padding: 56px 0 40px;
-      background: #f1f2f1;
+      background: var(--cream);
     }
     .hero-scene {
       position: absolute;
@@ -109,13 +110,13 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to top, #f4f5f4 0%, rgba(244,245,244,0) 12%),
+        linear-gradient(to top, #FAF7F2 0%, rgba(250,247,242,0) 12%),
         linear-gradient(
           180deg,
-          rgba(241,242,241,0.9) 0,
-          rgba(241,242,241,0.9) calc(var(--nav-h) + 280px),
-          rgba(220,226,216,0.28) calc(var(--nav-h) + 390px),
-          rgba(26,26,26,0.1) 100%
+          rgba(250,247,242,0.92) 0,
+          rgba(250,247,242,0.92) calc(var(--nav-h) + 280px),
+          rgba(244,240,232,0.4) calc(var(--nav-h) + 390px),
+          rgba(26,26,26,0.12) 100%
         );
     }
     .hero-grid { position: relative; z-index: 1; display: grid; gap: 28px; align-items: center; }
@@ -133,13 +134,13 @@
       .hero-scene img { object-position: center 42%; }
       .hero-scene::after {
         background:
-          linear-gradient(to top, #f4f5f4 0%, rgba(244,245,244,0) 14%),
+          linear-gradient(to top, #FAF7F2 0%, rgba(250,247,242,0) 14%),
           linear-gradient(
             90deg,
-            rgba(241,242,241,0.94) 0%,
-            rgba(241,242,241,0.9) 34%,
-            rgba(241,242,241,0.45) 50%,
-            rgba(214,220,208,0.1) 64%,
+            rgba(250,247,242,0.94) 0%,
+            rgba(250,247,242,0.9) 34%,
+            rgba(250,247,242,0.45) 50%,
+            rgba(244,240,232,0.16) 64%,
             rgba(26,26,26,0.12) 100%
           );
       }
@@ -153,8 +154,8 @@
       margin: 0 0 28px; font-size: clamp(16px, 2vw, 18px);
       color: #333; max-width: 36em;
     }
-    .hero-note { margin: 12px 0 0; font-size: 14px; color: var(--wolf); }
-    /* The Maya file is a phone on a large white plate. This window is only
+    .hero-note { margin: 12px 0 0; font-size: 14px; color: var(--stone); }
+    /* The phone file is a device on a large white plate. This window is only
        the device (bezel + screen). Soft shadow; no plate, card, or mat. */
     .hero-visual {
       position: relative;
@@ -171,8 +172,8 @@
     @media (min-width: 900px) {
       .hero-visual { margin: 0; justify-self: start; width: min(100%, 280px); }
     }
-    .hero-maya,
-    .hero-maya-fallback {
+    .hero-phone,
+    .hero-phone-fallback {
       position: absolute;
       display: block;
       /* Asset is 720×900. Device window: x 198, y 108, 324×684. */
@@ -186,22 +187,22 @@
       border-radius: 0;
       object-fit: fill;
     }
-    .hero-maya-fallback { display: none; }
+    .hero-phone-fallback { display: none; }
     @media (prefers-reduced-motion: reduce) {
-      .hero-maya { display: none; }
-      .hero-maya-fallback { display: block; }
+      .hero-phone { display: none; }
+      .hero-phone-fallback { display: block; }
     }
 
     /* PRODUCT — below hero */
     .product {
-      background: var(--soft);
+      background: var(--bone);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       padding: 48px 0 56px;
     }
     .product-label {
       font-size: 12px; font-weight: 600; letter-spacing: 0.07em;
-      text-transform: uppercase; color: var(--wolf); margin: 0 0 8px;
+      text-transform: uppercase; color: var(--stone); margin: 0 0 8px;
     }
     .product h2 { margin: 0 0 28px; font-size: clamp(22px, 3vw, 28px); letter-spacing: -0.01em; }
     .shots { display: grid; gap: 28px; }
@@ -218,7 +219,7 @@
       width: 100%; border-radius: 8px; border: 1px solid var(--border); background: #fff;
     }
     .shot.messages {
-      background: #F7F6F2;
+      background: var(--cream);
       display: flex; flex-direction: column; align-items: center;
     }
     .shot.messages img {
@@ -233,19 +234,19 @@
 
     /* SECTIONS */
     section.band { padding: 72px 0; }
-    section.band.soft { background: var(--soft); }
+    section.band.soft { background: var(--bone); }
     .eyebrow {
       margin: 0 0 10px; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--green);
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone);
       display: inline-flex; align-items: center; gap: 8px;
     }
     .sec-icon {
       width: 28px; height: 28px; flex: 0 0 auto;
-      color: var(--green); display: block;
+      color: var(--ink); display: block;
     }
     .band.soft .sec-icon { color: var(--ink); }
-    .band.soft .eyebrow { color: var(--ink); }
-    .band.soft .eyebrow .sec-icon { color: var(--green); } /* keep icons green even on soft */
+    .band.soft .eyebrow { color: var(--stone); }
+    .band.soft .eyebrow .sec-icon { color: var(--ink); }
     h2 {
       margin: 0 0 14px; font-size: clamp(26px, 3.5vw, 32px);
       line-height: 1.2; letter-spacing: -0.015em;
@@ -267,8 +268,8 @@
     ul.check li:last-child { border-bottom: none; }
     ul.check li::before {
       content: ""; position: absolute; left: 0; top: 14px;
-      width: 14px; height: 14px; border-radius: 4px; background: var(--green);
-      box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 5px var(--green);
+      width: 14px; height: 14px; border-radius: 4px; background: var(--ink);
+      box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 5px var(--ink);
     }
     .steps { display: grid; gap: 16px; margin-top: 28px; }
     @media (min-width: 800px) { .steps { grid-template-columns: repeat(3, 1fr); } }
@@ -278,10 +279,10 @@
     }
     .step-num {
       font-size: 13px; font-weight: 800; letter-spacing: 0.08em;
-      color: var(--green); margin-bottom: 10px;
+      color: var(--stone); margin-bottom: 10px;
       display: inline-flex; align-items: center; gap: 8px;
     }
-    .step-num .sec-icon { width: 24px; height: 24px; color: var(--green); }
+    .step-num .sec-icon { width: 24px; height: 24px; color: var(--ink); }
     .step h3 { margin: 0 0 8px; font-size: 17px; }
     .step p { margin: 0; color: #444; font-size: 15px; }
     .split { display: grid; gap: 16px; margin-top: 24px; }
@@ -290,7 +291,7 @@
     .split li { margin: 0 0 6px; }
     .callout {
       margin-top: 24px; border: 1px solid var(--border);
-      border-left: 4px solid var(--green); border-radius: 12px;
+      border-left: 4px solid var(--bronze); border-radius: 12px;
       padding: 22px 24px; background: var(--white); max-width: 48em;
     }
     .callout p { margin: 0; font-size: 17px; }
@@ -298,13 +299,17 @@
 
     .cta-band { background: var(--ink); color: #fff; padding: 64px 0; }
     .cta-band h2 { color: #fff; margin-bottom: 10px; }
-    .cta-band p { color: var(--wolf); margin: 0 0 24px; max-width: 34em; }
+    .cta-band p { color: var(--bone); margin: 0 0 24px; max-width: 34em; }
+    .cta-band .btn { background: var(--bone); color: var(--ink); }
+    .cta-band .btn:hover { background: #fff; }
 
     /* FOOTER — thin */
     .footer {
       border-top: 1px solid var(--border);
-      padding: 18px 0; font-size: 13px; color: var(--wolf);
+      padding: 18px 0; font-size: 13px; color: var(--stone);
     }
+    .footer-brand { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .footer-logo { height: 28px; width: auto; display: block; }
     .footer-inner {
       width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
       display: flex; flex-wrap: wrap; gap: 8px 20px;
@@ -314,14 +319,14 @@
     .footer .legal { color: #9aa0a3; }
     .footer a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
     .footer a:hover { color: var(--ink); }
-    .footer a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .footer a:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <a href="#top" aria-label="Kinetic home">
-        <img class="nav-logo" src="images/kinetic-wordmark-nav-clear.png" alt="Kinetic" />
+      <a href="#top" aria-label="Dempsey home">
+        <img class="nav-logo" src="images/dempsey-wordmark-nav.png" alt="Dempsey" width="518" height="140" />
       </a>
       <a class="btn btn-nav" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
     </div>
@@ -335,16 +340,16 @@
       <div class="wrap hero-grid">
         <div>
           <h1>Coaching doesn’t stop between sessions.</h1>
-          <p class="sub">Meet Maya — your personal agent who lives in text. Maya checks in with clients, confirms programming and keeps clients focused on their goals.</p>
+          <p class="sub">Meet Dempsey — your personal agent who lives in text. Dempsey checks in with clients, confirms programming and keeps clients focused on their goals.</p>
           <a class="btn" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min fit call</a>
           <p class="hero-note">To coach more clients. To save time. To keep clients.</p>
         </div>
-        <aside class="hero-visual" aria-label="Maya check-in on text">
-          <video class="hero-maya" autoplay muted loop playsinline poster="maya-hero-poster.png" width="720" height="900">
-            <source src="maya-hero.webm" type="video/webm" />
-            <source src="maya-hero.mp4" type="video/mp4" />
+        <aside class="hero-visual" aria-label="Dempsey check-in on text">
+          <video class="hero-phone" autoplay muted loop playsinline poster="dempsey-hero-poster.png" width="720" height="900">
+            <source src="dempsey-hero.webm" type="video/webm" />
+            <source src="dempsey-hero.mp4" type="video/mp4" />
           </video>
-          <img class="hero-maya-fallback" src="maya-hero-fallback.png" alt="Maya check-in texts on iPhone" width="720" height="900" />
+          <img class="hero-phone-fallback" src="dempsey-hero-fallback.png" alt="Dempsey check-in texts on iPhone" width="720" height="900" />
         </aside>
       </div>
     </section>
@@ -360,7 +365,7 @@
           </figure>
           <figure class="shot messages">
             <img src="checkin-messages.png?v=3" alt="Client check-in texts on iPhone" />
-            <figcaption><strong>Maya in text</strong> — clients stay in the thread they already use. No new app.</figcaption>
+            <figcaption><strong>Dempsey in text</strong> — clients stay in the thread they already use. No new app.</figcaption>
           </figure>
         </div>
       </div>
@@ -396,7 +401,7 @@
   <path d="M10.25 18.85c.55-.55 2.95-.55 3.5 0"/>
 </svg> What you get</p>
         <h2>Built so clients stay on track when you’re not in the room.</h2>
-        <p class="body">Maya runs check-ins in the text thread clients already use. Your dashboard shows who checked in, who’s quiet, and who needs you. You train while Maya drafts the next steps — you still approve before anything goes out.</p>
+        <p class="body">Dempsey runs check-ins in the text thread clients already use. Your dashboard shows who checked in, who’s quiet, and who needs you. You train while Dempsey drafts the next steps — you still approve before anything goes out.</p>
         <ul class="check">
           <li>Clients stay on 1:1 text — no new app to download</li>
           <li>Check-ins built around your programming and each client’s goals</li>
@@ -422,7 +427,7 @@
   <path d="M10.25 18.85c.55-.55 2.95-.55 3.5 0"/>
 </svg> 01</div>
             <h3>Clients stay on text</h3>
-            <p>Maya runs check-ins built around your programming and each client’s goals. No new app.</p>
+            <p>Dempsey runs check-ins built around your programming and each client’s goals. No new app.</p>
           </div>
           <div class="step">
             <div class="step-num"><svg class="sec-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -454,11 +459,11 @@
   <path d="M16.85 3.85a1.85 1.85 0 0 1 2.62 2.62L8.1 18.0l-3.55.95.95-3.55L16.85 3.85z"/>
   <path d="M4 20.25h7.5"/>
 </svg> Trust</p>
-        <h2>Maya drafts. You send.</h2>
+        <h2>Dempsey drafts. You send.</h2>
         <p class="body">Nothing goes out to your existing clients under your name unless you approve it. That boundary is permanent for client relationships.</p>
         <div class="split">
           <div class="card">
-            <h3>Maya does</h3>
+            <h3>Dempsey does</h3>
             <ul>
               <li>Runs between-session check-ins in text, around the programming and goals you set</li>
               <li>Logs replies to your dashboard</li>
@@ -467,7 +472,7 @@
             </ul>
           </div>
           <div class="card">
-            <h3>Maya does not</h3>
+            <h3>Dempsey does not</h3>
             <ul>
               <li>Send to existing clients without your approval</li>
               <li>Live set-by-set mid-workout logging</li>
@@ -495,7 +500,7 @@
     <section class="cta-band" id="book">
       <div class="wrap">
         <h2>Ready to see if it fits how you coach?</h2>
-        <p>Fifteen minutes. Walk through your roster and what Maya would look like for you. You approve what gets sent.</p>
+        <p>Fifteen minutes. Walk through your roster and what Dempsey would look like for you. You approve what gets sent.</p>
         <a class="btn" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min fit call</a>
       </div>
     </section>
@@ -503,8 +508,11 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div><strong>Kinetic</strong> · flexkinetic.com · Keep them moving between sessions.</div>
-      <div class="legal">© 2026 Kinetic · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></div>
+      <div class="footer-brand">
+        <img class="footer-logo" src="images/dempsey-wordmark-nav.png" alt="Dempsey" width="518" height="140" />
+        <span>flexkinetic.com · Keep them moving between sessions.</span>
+      </div>
+      <div class="legal">© 2026 Dempsey · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></div>
     </div>
   </footer>
   <script>

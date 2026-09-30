@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terms · Kinetic</title>
-  <meta name="description" content="Terms for Kinetic at flexkinetic.com, including text and SMS messaging for Maya check-ins." />
+  <title>Terms · Dempsey</title>
+  <meta name="description" content="Terms for Dempsey at flexkinetic.com, including text and SMS messaging for Dempsey check-ins." />
   <meta name="theme-color" content="#1A1A1A" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
@@ -12,11 +12,12 @@
   <style>
     :root {
       --ink: #1A1A1A;
-      --green: #69BE28;
-      --green-dark: #5aa622;
-      --wolf: #A5ACAF;
-      --soft: #F4F5F4;
-      --border: #E6E8E6;
+      --stone: #8A8175;
+      --bone: #F4F0E8;
+      --cream: #FAF7F2;
+      --bronze: #8B6F47;
+      --bronze-deep: #6B5436;
+      --border: #E4DDD2;
       --white: #FFFFFF;
       --max: 1080px;
     }
@@ -26,7 +27,7 @@
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
-      background: var(--white);
+      background: var(--cream);
       font-size: 17px;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
@@ -44,19 +45,19 @@
       gap: 16px; padding: 8px 0;
       width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
     }
-    .nav-logo { height: 48px; width: auto; display: block; }
+    .nav-logo { height: 40px; width: auto; display: block; }
     @media (min-width: 768px) {
-      .nav-logo { height: 56px; }
+      .nav-logo { height: 48px; }
     }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       min-height: 48px; padding: 0 24px; border-radius: 8px;
-      background: var(--green); color: #fff; font-weight: 600; font-size: 16px;
+      background: var(--ink); color: var(--bone); font-weight: 600; font-size: 16px;
       border: none; cursor: pointer; white-space: nowrap;
       transition: background 0.15s ease;
     }
-    .btn:hover { background: var(--green-dark); }
-    .btn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .btn:hover { background: #000; }
+    .btn:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
     .btn-nav { min-height: 42px; padding: 0 18px; font-size: 15px; }
     .doc {
       width: min(680px, calc(100% - 48px));
@@ -65,7 +66,7 @@
     }
     .eyebrow {
       margin: 0 0 10px; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--green);
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--stone);
     }
     .doc h1 {
       margin: 0 0 12px;
@@ -76,18 +77,20 @@
     .doc h2 { margin: 28px 0 8px; font-size: 18px; letter-spacing: -0.01em; }
     .doc p { margin: 0 0 12px; color: #333; font-size: 16px; }
     .doc a { text-decoration: underline; text-underline-offset: 3px; }
-    .doc a:hover { color: var(--green-dark); }
+    .doc a:hover { color: var(--bronze-deep); }
     .callout {
       margin: 0 0 8px; border: 1px solid var(--border);
-      border-left: 4px solid var(--green); border-radius: 12px;
-      padding: 18px 20px; background: var(--soft);
+      border-left: 4px solid var(--bronze); border-radius: 12px;
+      padding: 18px 20px; background: var(--bone);
     }
     .callout p { margin: 0; font-size: 15px; color: #333; }
-    .effective-date { margin-top: 28px; font-size: 14px; color: var(--wolf); }
+    .effective-date { margin-top: 28px; font-size: 14px; color: var(--stone); }
     .footer {
       border-top: 1px solid var(--border);
-      padding: 18px 0; font-size: 13px; color: var(--wolf);
+      padding: 18px 0; font-size: 13px; color: var(--stone);
     }
+    .footer-brand { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .footer-logo { height: 28px; width: auto; display: block; }
     .footer-inner {
       width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
       display: flex; flex-wrap: wrap; gap: 8px 20px;
@@ -97,14 +100,14 @@
     .footer .legal { color: #9aa0a3; }
     .footer a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
     .footer a:hover { color: var(--ink); }
-    .footer a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .footer a:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <a href="index.html" aria-label="Kinetic home">
-        <img class="nav-logo" src="images/kinetic-wordmark-nav-clear.png" alt="Kinetic" />
+      <a href="index.html" aria-label="Dempsey home">
+        <img class="nav-logo" src="images/dempsey-wordmark-nav.png" alt="Dempsey" width="518" height="140" />
       </a>
       <a class="btn btn-nav" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
     </div>
@@ -113,44 +116,44 @@
   <main>
     <article class="doc">
       <h1>Terms</h1>
-      <p class="lede">Terms for Kinetic at flexkinetic.com. By using the site, you agree to these terms.</p>
+      <p class="lede">Terms for Dempsey at flexkinetic.com. By using the site, you agree to these terms.</p>
 
-      <h2>Who Kinetic is for</h2>
-      <p>Kinetic is for trainers — independent trainers, small studios, and fitness gyms. Maya is a personal client agent that lives in text. She helps their clients with check-ins between sessions. Trainers use Kinetic. Clients get those texts after they opt in.</p>
+      <h2>Who Dempsey is for</h2>
+      <p>Dempsey is for trainers — independent trainers, small studios, and fitness gyms. Dempsey is a personal client agent that lives in text and helps their clients with check-ins between sessions. Trainers use Dempsey. Clients get those texts after they opt in.</p>
 
       <h2>The site and booking</h2>
       <p>These terms cover the public marketing site at flexkinetic.com and the text and SMS messages described below. “Book a 15-min fit call” and “Book a 15-min call” open a scheduling page on Cal.com. Scheduling that conversation does not create an account, a subscription, or a product contract.</p>
 
       <h2>Text / SMS messaging</h2>
-      <p>Maya check-ins and related coaching messages are text or SMS messages from Kinetic and/or the trainer using Kinetic. They are sent only after a person opts in. A typical way to opt in is to agree when a trainer enrolls them, and to provide a mobile number and consent for those messages.</p>
+      <p>Dempsey check-ins and related coaching messages are text or SMS messages from Dempsey and/or the trainer using Dempsey. They are sent only after a person opts in. A typical way to opt in is to agree when a trainer enrolls them, and to provide a mobile number and consent for those messages.</p>
       <p>Consent to receive texts is not a condition of buying something unrelated on this marketing site. This site does not collect phone numbers for SMS.</p>
       <p>Message and data rates may apply. How often messages arrive varies with the check-in flow.</p>
       <p>Reply STOP anytime to opt out of SMS and text messages. Opt-out is honored, and outbound texts stop. Reply HELP for help. Reply PAUSE to pause messages for about 7 days.</p>
       <p>For a trainer’s existing clients, messages do not go out under the trainer’s name unless the trainer approves them.</p>
 
-      <h2>Maya</h2>
-      <p>Maya is an AI assistant that helps the trainer. She is not a human, and she is not a substitute for the coach. Messages from Maya are not medical, nutrition, or program advice. The trainer stays responsible for coaching and for the program a client follows. Copy on this site is an overview. It is not professional advice.</p>
+      <h2>Dempsey</h2>
+      <p>Dempsey is an AI assistant that helps the trainer. Dempsey is not a human, and is not a substitute for the coach. Messages from Dempsey are not medical, nutrition, or program advice. The trainer stays responsible for coaching and for the program a client follows. Copy on this site is an overview. It is not professional advice.</p>
 
       <h2>Acceptable use</h2>
-      <p>Use the site to read about Kinetic and to book a fit call. Do not interfere with the site, attempt to break it, or present yourself as Kinetic, as Maya, or as a trainer you are not. Do not use the site or the messages to harass anyone, or to text someone who has not opted in.</p>
+      <p>Use the site to read about Dempsey and to book a fit call. Do not interfere with the site, attempt to break it, or present yourself as Dempsey, or as a trainer you are not. Do not use the site or the messages to harass anyone, or to text someone who has not opted in.</p>
 
       <h2>Intellectual property</h2>
-      <p>The Kinetic name, wordmark, text, and images on this site belong to Kinetic. You may not copy them for another product or brand.</p>
+      <p>The Dempsey name, wordmark, text, and images on this site belong to Dempsey. You may not copy them for another product or brand.</p>
 
       <h2>Third-party services</h2>
-      <p>The booking page is operated by Cal.com. Cal.com’s own terms apply once you leave flexkinetic.com. The site is hosted on Vercel. Text and SMS messages are carried by messaging providers Kinetic uses to deliver them. Those companies handle that work under their own terms.</p>
+      <p>The booking page is operated by Cal.com. Cal.com’s own terms apply once you leave flexkinetic.com. The site is hosted on Vercel. Text and SMS messages are carried by messaging providers Dempsey uses to deliver them. Those companies handle that work under their own terms.</p>
 
       <h2>No warranties</h2>
-      <p>The site and the messages are provided as is. Kinetic does not warrant that they will be uninterrupted, error-free, or fit for a particular purpose. To the extent US law allows, Kinetic disclaims implied warranties, including merchantability, fitness for a particular purpose, and non-infringement.</p>
+      <p>The site and the messages are provided as is. Dempsey does not warrant that they will be uninterrupted, error-free, or fit for a particular purpose. To the extent US law allows, Dempsey disclaims implied warranties, including merchantability, fitness for a particular purpose, and non-infringement.</p>
 
       <h2>Limitation of liability</h2>
-      <p>To the extent US law allows, Kinetic is not liable for indirect, incidental, special, consequential, or punitive damages, or for lost profits or lost data, arising out of the site or these messages. Kinetic’s total liability for a claim arising out of the site or these messages is limited to the amount you paid Kinetic in the twelve months before the claim, or $100 if you paid nothing. Some places do not allow these limits. Where they do not, the limits apply only as far as the law allows.</p>
+      <p>To the extent US law allows, Dempsey is not liable for indirect, incidental, special, consequential, or punitive damages, or for lost profits or lost data, arising out of the site or these messages. Dempsey’s total liability for a claim arising out of the site or these messages is limited to the amount you paid Dempsey in the twelve months before the claim, or $100 if you paid nothing. Some places do not allow these limits. Where they do not, the limits apply only as far as the law allows.</p>
 
       <h2>Governing law</h2>
-      <p>These terms are governed by the laws of the United States. Kinetic is offered from the United States and is aimed at trainers there.</p>
+      <p>These terms are governed by the laws of the United States. Dempsey is offered from the United States and is aimed at trainers there.</p>
 
       <h2>Changes</h2>
-      <p>Kinetic may update these terms. When we do, we change the effective date below. If you keep using the site after an update, the updated terms apply. You can still reply STOP to opt out of text and SMS messages.</p>
+      <p>Dempsey may update these terms. When we do, we change the effective date below. If you keep using the site after an update, the updated terms apply. You can still reply STOP to opt out of text and SMS messages.</p>
 
       <h2>Contact</h2>
       <p>Questions about these terms: <a href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min fit call</a>, or visit flexkinetic.com.</p>
@@ -162,8 +165,11 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div><strong>Kinetic</strong> · flexkinetic.com · Keep them moving between sessions.</div>
-      <div class="legal">© 2026 Kinetic · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></div>
+      <div class="footer-brand">
+        <img class="footer-logo" src="images/dempsey-wordmark-nav.png" alt="Dempsey" width="518" height="140" />
+        <span>flexkinetic.com · Keep them moving between sessions.</span>
+      </div>
+      <div class="legal">© 2026 Dempsey · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></div>
     </div>
   </footer>
 </body>
