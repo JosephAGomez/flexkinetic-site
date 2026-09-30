@@ -49,6 +49,21 @@
     @media (min-width: 768px) {
       .nav-logo { height: 48px; }
     }
+    .wordmark {
+      position: relative;
+      display: inline-block;
+      line-height: 0;
+    }
+    .wordmark::after {
+      content: "";
+      position: absolute;
+      left: 3.1%;
+      right: 3.3%;
+      top: 93%;
+      height: 1.5px;
+      background: var(--green);
+      pointer-events: none;
+    }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       min-height: 48px; padding: 0 24px; border-radius: 8px;
@@ -106,7 +121,7 @@
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <a href="index.html" aria-label="Dempsey home">
+      <a class="wordmark" href="index.html" aria-label="Dempsey home">
         <img class="nav-logo" src="images/dempsey-wordmark-nav.png" alt="Dempsey" width="518" height="140" />
       </a>
       <a class="btn btn-nav" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
@@ -166,7 +181,9 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img class="footer-logo" src="images/dempsey-wordmark-nav.png" alt="Dempsey" width="518" height="140" />
+        <span class="wordmark">
+          <img class="footer-logo" src="images/dempsey-wordmark-nav.png" alt="Dempsey" width="518" height="140" />
+        </span>
         <span>flexkinetic.com · Keep them moving between sessions.</span>
       </div>
       <div class="legal">© 2026 Dempsey · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></div>
