@@ -21,13 +21,6 @@
       --white: #FFFFFF;
       --max: 1080px;
     }
-    @font-face {
-      font-family: "DM Sans";
-      src: url("fonts/dm-sans-semibold.woff2") format("woff2");
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -53,40 +46,19 @@
       width: min(var(--max), calc(100% - 48px)); margin: 0 auto;
     }
     .wordmark {
-      position: relative;
-      display: inline-flex;
-      align-items: baseline;
-      gap: 0.04em;
-      padding-bottom: 0.14em;
-      color: var(--ink);
-      font-family: "DM Sans", Inter, system-ui, sans-serif;
-      font-weight: 600;
-      font-size: 34px;
-      letter-spacing: -0.028em;
-      line-height: 1;
+      display: inline-block;
+      line-height: 0;
       text-decoration: none;
     }
-    @media (min-width: 768px) {
-      .nav .wordmark { font-size: 40px; }
-    }
-    .footer .wordmark { font-size: 22px; }
-    .wordmark-mark {
-      height: 0.68em;
+    .wordmark img {
+      height: 44px;
       width: auto;
       max-width: none;
-      display: block;
     }
-    .wordmark-type { letter-spacing: -0.028em; }
-    .wordmark::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 1.5px;
-      background: var(--green);
-      pointer-events: none;
+    @media (min-width: 768px) {
+      .nav .wordmark img { height: 52px; }
     }
+    .footer .wordmark img { height: 32px; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       min-height: 48px; padding: 0 24px; border-radius: 8px;
@@ -144,8 +116,7 @@
   <header class="nav">
     <div class="nav-inner">
       <a class="wordmark" href="index.html" aria-label="Dempsey home">
-        <img class="wordmark-mark" src="images/dempsey-mark-d-trim.png" alt="" width="374" height="466" />
-        <span class="wordmark-type" aria-hidden="true">empsey</span>
+        <img src="public/images/dempsey-wordmark-custom-underline.png" alt="" width="678" height="199" />
       </a>
       <a class="btn btn-nav" href="https://cal.com/josephgomez/kinetic-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
     </div>
@@ -211,8 +182,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="wordmark" role="img" aria-label="Dempsey">
-          <img class="wordmark-mark" src="images/dempsey-mark-d-trim.png" alt="" width="374" height="466" />
-          <span class="wordmark-type" aria-hidden="true">empsey</span>
+          <img src="public/images/dempsey-wordmark-custom-underline.png" alt="" width="678" height="199" />
         </span>
         <span>flexkinetic.com · Keep them moving between sessions.</span>
       </div>
