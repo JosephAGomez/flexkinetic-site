@@ -161,7 +161,7 @@
       color: #333; max-width: 36em;
     }
     .hero-note { margin: 12px 0 0; font-size: 14px; color: var(--stone); }
-    /* The phone file is a device on a large white plate. This window is only
+    /* The phone file is the device with transparent padding. This window is only
        the device (bezel + screen). Soft shadow; no plate, card, or mat. */
     .hero-visual {
       position: relative;
@@ -182,12 +182,12 @@
     .hero-phone-fallback {
       position: absolute;
       display: block;
-      /* Asset is 720×900. Device window: x 198, y 108, 324×684. */
-      width: 222.222%;
-      height: 131.579%;
+      /* Asset is 420×780. Device window: x 48, y 48, 324×684. */
+      width: 129.630%;
+      height: 114.035%;
       max-width: none;
-      left: -61.111%;
-      top: -15.789%;
+      left: -14.815%;
+      top: -7.018%;
       margin: 0;
       border: none;
       border-radius: 0;
@@ -348,11 +348,11 @@
           <p class="hero-note">To coach more clients. To save time. To keep clients.</p>
         </div>
         <aside class="hero-visual" aria-label="Dempsey check-in on text">
-          <video class="hero-phone" autoplay muted loop playsinline poster="dempsey-hero-poster.png" width="720" height="900">
+          <video class="hero-phone" autoplay muted loop playsinline poster="dempsey-hero-poster.png" width="420" height="780">
             <source src="dempsey-hero.webm" type="video/webm" />
             <source src="dempsey-hero.mp4" type="video/mp4" />
           </video>
-          <img class="hero-phone-fallback" src="dempsey-hero-fallback.png" alt="Dempsey check-in texts on iPhone" width="720" height="900" />
+          <img class="hero-phone-fallback" src="dempsey-hero-fallback.png" alt="Dempsey check-in texts on iPhone" width="420" height="780" />
         </aside>
       </div>
     </section>
@@ -367,7 +367,7 @@
             <figcaption><strong>Trainer dashboard</strong> — who checked in, who’s quiet, who needs you</figcaption>
           </figure>
           <figure class="shot messages">
-            <img src="checkin-messages.png?v=3" alt="Client check-in texts on iPhone" />
+            <img src="checkin-messages.png?v=4" alt="Client check-in texts on iPhone" />
             <figcaption><strong>Dempsey in text</strong> — clients stay in the thread they already use. No new app.</figcaption>
           </figure>
         </div>
