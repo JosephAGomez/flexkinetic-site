@@ -40,11 +40,68 @@
     img { max-width: 100%; height: auto; display: block; }
     .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
 
+    /* Announcement + nav stick as one bar. The nav still sits on the
+       lifestyle wash; the offer line stays ink so it stays readable. */
+    .site-head {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .announce {
+      display: block;
+      background: var(--ink);
+      color: var(--bone);
+      font-size: 13.5px;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+    .announce:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: -2px;
+    }
+    .announce-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 14px;
+      padding: 8px 0;
+      text-align: center;
+    }
+    .announce-copy {
+      margin: 0;
+      min-width: 0;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      text-wrap: balance;
+    }
+    .announce-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 600;
+      font-size: 12.5px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .announce:hover .announce-cta { background: var(--green-dark); }
+    @media (max-width: 420px) {
+      .announce { font-size: 13px; }
+      .announce-inner { width: min(var(--max), calc(100% - 24px)); }
+    }
+
     /* NAV — sits on the same lifestyle wash as the hero.
        Transparent at the top. A few pixels of scroll adds .is-solid
        so the bar frosts while moving through the hero and below. */
     .nav {
-      position: sticky; top: 0; z-index: 20;
+      position: relative;
       min-height: var(--nav-h);
       background: transparent;
       border-bottom: 1px solid transparent;
@@ -160,7 +217,7 @@
       margin: 0 0 28px; font-size: clamp(16px, 2vw, 18px);
       color: #333; max-width: 36em;
     }
-    .hero-note { margin: 12px 0 0; font-size: 14px; color: var(--stone); }
+    .hero-note { margin: 12px 0 0; font-size: 14px; font-weight: 500; color: var(--ink); }
     /* The phone file is the device with transparent padding. This window is only
        the device (bezel + screen). Soft shadow; no plate, card, or mat. */
     .hero-visual {
@@ -326,14 +383,22 @@
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="#top" aria-label="Dempsey home">
-        <img class="nav-logo" src="images/dempsey-wordmark-p1-ink.png" alt="Dempsey" width="594" height="158" />
-      </a>
-      <a class="btn btn-nav" href="https://cal.com/josephgomez/dempsey-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
-    </div>
-  </header>
+  <div class="site-head">
+    <a class="announce" href="https://cal.com/josephgomez/dempsey-15min-fit-call" target="_blank" rel="noopener">
+      <span class="announce-inner">
+        <span class="announce-copy">Early coach access — free setup for the first 10 trainers.</span>
+        <span class="announce-cta">Book the call</span>
+      </span>
+    </a>
+    <header class="nav">
+      <div class="nav-inner">
+        <a href="#top" aria-label="Dempsey home">
+          <img class="nav-logo" src="images/dempsey-wordmark-p1-ink.png" alt="Dempsey" width="594" height="158" />
+        </a>
+        <a class="btn btn-nav" href="https://cal.com/josephgomez/dempsey-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
+      </div>
+    </header>
+  </div>
 
   <main id="top">
     <section class="hero">
@@ -344,8 +409,8 @@
         <div>
           <h1>Coaching doesn’t stop between sessions.</h1>
           <p class="sub">Meet Dempsey — your personal fitness agent. Dempsey checks in with your clients, confirms programming and keeps clients focused on their goals.</p>
-          <a class="btn" href="https://cal.com/josephgomez/dempsey-15min-fit-call" target="_blank" rel="noopener">Book a 15-min fit call</a>
-          <p class="hero-note">To coach more clients. To save time. To keep clients.</p>
+          <a class="btn" href="https://cal.com/josephgomez/dempsey-15min-fit-call" target="_blank" rel="noopener">Get early coach access</a>
+          <p class="hero-note">Expand your client roster, without sacrificing quality.</p>
         </div>
         <aside class="hero-visual" aria-label="Dempsey check-in on text">
           <video class="hero-phone" autoplay muted loop playsinline poster="dempsey-hero-poster.png" width="420" height="780">
@@ -501,8 +566,8 @@
 
     <section class="cta-band" id="book">
       <div class="wrap">
-        <h2>Ready to see if it fits how you coach?</h2>
-        <p>Fifteen minutes. Walk through your roster and what Dempsey would look like for you. You approve what gets sent.</p>
+        <h2>Ready to see how Dempsey works?</h2>
+        <p>Fifteen minutes. Walk through your roster and what Dempsey would look like for you.</p>
         <a class="btn" href="https://cal.com/josephgomez/dempsey-15min-fit-call" target="_blank" rel="noopener">Book a 15-min fit call</a>
       </div>
     </section>

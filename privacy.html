@@ -34,8 +34,62 @@
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; height: auto; display: block; }
+    .site-head {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .announce {
+      display: block;
+      background: var(--ink);
+      color: var(--bone);
+      font-size: 13.5px;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+    .announce:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: -2px;
+    }
+    .announce-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 14px;
+      padding: 8px 0;
+      text-align: center;
+    }
+    .announce-copy {
+      margin: 0;
+      min-width: 0;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      text-wrap: balance;
+    }
+    .announce-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 600;
+      font-size: 12.5px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .announce:hover .announce-cta { background: var(--green-dark); }
+    @media (max-width: 420px) {
+      .announce { font-size: 13px; }
+      .announce-inner { width: min(var(--max), calc(100% - 24px)); }
+    }
     .nav {
-      position: sticky; top: 0; z-index: 20;
+      position: relative;
       background: rgba(255,255,255,0.96);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
@@ -109,14 +163,22 @@
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="index.html" aria-label="Dempsey home">
-        <img class="nav-logo" src="images/dempsey-wordmark-p1-ink.png" alt="Dempsey" width="594" height="158" />
-      </a>
-      <a class="btn btn-nav" href="https://cal.com/josephgomez/dempsey-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
-    </div>
-  </header>
+  <div class="site-head">
+    <a class="announce" href="https://cal.com/josephgomez/dempsey-15min-fit-call" target="_blank" rel="noopener">
+      <span class="announce-inner">
+        <span class="announce-copy">Early coach access — free setup for the first 10 trainers.</span>
+        <span class="announce-cta">Book the call</span>
+      </span>
+    </a>
+    <header class="nav">
+      <div class="nav-inner">
+        <a href="index.html" aria-label="Dempsey home">
+          <img class="nav-logo" src="images/dempsey-wordmark-p1-ink.png" alt="Dempsey" width="594" height="158" />
+        </a>
+        <a class="btn btn-nav" href="https://cal.com/josephgomez/dempsey-15min-fit-call" target="_blank" rel="noopener">Book a 15-min call</a>
+      </div>
+    </header>
+  </div>
 
   <main>
     <article class="doc">
