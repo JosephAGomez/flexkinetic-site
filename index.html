@@ -109,7 +109,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: left 40%;
+      object-position: center 58%;
     }
     .hero-scene::after {
       content: "";
@@ -137,13 +137,7 @@
         justify-content: start;
         gap: 40px;
       }
-      .hero-scene { overflow: hidden; }
-      .hero-scene img {
-        object-position: left 40%;
-        /* Keep the pair left of the phone. The plate is already biased left;
-           this slide only covers widths where the mock still meets them. */
-        transform: translateX(max(-320px, min(-100px, calc(50vw - 780px))));
-      }
+      .hero-scene img { object-position: 62% 58%; }
       .hero-scene::after {
         background:
           linear-gradient(to top, #FAF7F2 0%, rgba(250,247,242,0) 14%),
@@ -344,7 +338,7 @@
   <main id="top">
     <section class="hero">
       <div class="hero-scene" aria-hidden="true">
-        <img src="images/hero-coach-client.webp" alt="" width="1800" height="904" decoding="async" />
+        <img src="images/hero-coach-client.webp" alt="" width="2400" height="1600" decoding="async" />
       </div>
       <div class="wrap hero-grid">
         <div>
