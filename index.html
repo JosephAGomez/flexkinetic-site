@@ -102,7 +102,6 @@
       top: calc(-1 * var(--nav-h));
       z-index: 0;
       pointer-events: none;
-      overflow: hidden;
     }
     .hero-scene img {
       position: absolute;
@@ -110,7 +109,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 72% 42%;
+      object-position: left 40%;
     }
     .hero-scene::after {
       content: "";
@@ -138,13 +137,12 @@
         justify-content: start;
         gap: 40px;
       }
+      .hero-scene { overflow: hidden; }
       .hero-scene img {
-        object-position: center 42%;
-        /* Full-bleed cover leaves almost no horizontal crop, so the lunging
-           client sits under the phone. Zoom and slide the plate until the
-           coach and client land in the open band to the phone's left. */
-        transform: translateX(-34%) scale(1.55);
-        transform-origin: 40% 44%;
+        object-position: left 40%;
+        /* Keep the pair left of the phone. The plate is already biased left;
+           this slide only covers widths where the mock still meets them. */
+        transform: translateX(max(-320px, min(-100px, calc(50vw - 780px))));
       }
       .hero-scene::after {
         background:
@@ -157,18 +155,6 @@
             rgba(244,240,232,0.16) 64%,
             rgba(26,26,26,0.12) 100%
           );
-      }
-    }
-    @media (min-width: 980px) {
-      .hero-scene img {
-        transform: translateX(-26%) scale(1.4);
-        transform-origin: 46% 42%;
-      }
-    }
-    @media (min-width: 1200px) {
-      .hero-scene img {
-        transform: translateX(-16%) scale(1.28);
-        transform-origin: 53% 40%;
       }
     }
     .hero h1 {
